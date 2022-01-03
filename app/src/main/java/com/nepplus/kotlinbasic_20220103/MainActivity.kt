@@ -28,7 +28,22 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnMessageToast.setOnClickListener {
-            Toast.makeText(this, "~~ 입력됨", Toast.LENGTH_SHORT).show()
+
+//              1. edgMessage에 입력된 문구를 받아서 => 변수에 저장해두자
+            val inputMessage = edtMessage.text.toString()  // 입력된 문구를 -> String으로 변환 -> 변수에 담아두기
+
+//              2. 얻어낸 inputMessage 변수에 담긴 값을, String에다가 끼워넣기.
+//              Python : f str 사용 방법.
+
+            Toast.makeText(this, "${inputMessage} 입력됨", Toast.LENGTH_SHORT).show()
+        }
+
+        btnMessageTextView.setOnClickListener {
+//          1. 입력된 문구를 받아서 저장, Python : input()
+            val inputMessage = edtMessage.text.toString()
+
+//          2. txtMessage의 문구로 inputMessage 반영
+            txtMessage.text = inputMessage
         }
 
 
